@@ -1,0 +1,238 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Alinha o conteúdo em coluna */
+  overflow: hidden;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: flex-start; /* Mantém o conteúdo no topo */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/bg.jpg');
+  background-size: cover;
+  background-position: -1100% center;
+  background-repeat: repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.navbar {
+  width: 100%;
+  padding: 20px 0 20px 0;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.navbar-brand {
+  text-align: center; /* Para centralizar o texto dentro do link */
+}
+
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
+main {
+  padding-top: 20px; /* Adiciona espaço acima do conteúdo principal */
+  max-width: 1080px; /* Limita a largura máxima do conteúdo */
+  width: 100%; /* Largura total */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo */
+  padding: 10px;
+}
+
+.resume {
+  display: flex;
+  padding: 15px;
+  gap: 20px;
+  width: 100%; /* Largura total para o container */
+  justify-content: center; /* Centraliza os itens dentro da div */
+  flex-wrap: wrap;
+  background-color: #ACD5F7;
+  box-shadow: 0px 0px 7px #ccc;
+  margin-bottom: 20px; /* Espaço abaixo do container */
+}
+
+.resume > div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 7px #ccc;
+  border: solid 5px;
+  border-radius: 10px;
+  border-color: #ACD5F7;
+  font-size: 20px;
+  padding: 10px;
+  width: 100%; /* Largura total para os itens */
+  max-width: 200px; /* Limita a largura dos itens para evitar que fiquem muito largos */
+  height: 100px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+.newItem {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.divDesc, .divType, .divAmount {
+  display: flex;
+  flex-direction: column;
+}
+
+#btnNew {
+  margin-bottom: 20px;
+  background-color: #ACD5F7;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-color: #96ccf8;
+  padding: 0 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+}
+
+#btnNew:hover {
+  background-color: #2a9bf8;
+}
+
+input, select {
+  padding: 10px;
+  border: solid 2px;
+  border-radius: 10px;
+  border-color: #ACD5F7;
+}
+
+.divTable {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+#type {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #ebe8e8;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #FFF;
+}
+
+th {
+  text-align: start;
+  border-bottom: inset;
+  padding-bottom: 5px;
+}
+
+i {
+  font-size: 25px;
+}
+
+.bxs-chevron-up-circle {
+  color: #ACD5F7;
+}
+
+.bxs-chevron-down-circle {
+  color: #D83121;
+}
+
+.columnAction {
+  width: 40px;
+  text-align: center;
+}
+
+.columnAction > button {
+  background: transparent;
+  border: none;
+}
+
+.columnAmount {
+  width: 30%;
+}
+
+.columnType {
+  width: 100px;
+  text-align: center;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .resume {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    gap: 10px; /* Ajusta o espaço entre os itens */
+  }
+
+  .resume > div {
+    width: auto; /* Ajusta a largura dos itens para ser fluida */
+    margin: 0 auto; /* Centraliza os itens */
+    font-size: 18px; /* Reduz o tamanho da fonte */
+  }
+
+  .newItem {
+    flex-direction: column; /* Altera a direção para coluna */
+    align-items: stretch; /* Alinha os itens ao longo da largura */
+  }
+
+  .divDesc, .divType, .divAmount {
+    width: 100%; /* Faz as entradas ocupar toda a largura */
+  }
+
+  .columnAmount, .columnType {
+    width: auto; /* Ajusta a largura para ser fluida */
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 5px; /* Reduz o padding para telas muito pequenas */
+  }
+
+  .resume > div {
+    font-size: 16px; /* Tamanho de fonte menor para telas pequenas */
+    padding: 15px; /* Aumenta o padding para melhorar a área clicável */
+  }
+
+  #btnNew {
+    width: 100%; /* Botão ocupa toda a largura */
+    height: 50px; /* Aumenta a altura do botão */
+  }
+
+  input, select {
+    width: 100%; /* Inputs e selects ocupam toda a largura */
+  }
+}
